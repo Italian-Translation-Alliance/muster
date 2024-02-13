@@ -1,0 +1,71 @@
+% universal settings
+\documentclass[a5paper,11pt,twoside,onecolumn,openany,extrafontsizes,final]{memoir}%,showtrims pour les traits de coupe
+%=======================
+%Pour le fond perdu  prépress
+%\setstocksize{224.8mm}{162.9mm}
+%\settrimmedsize{210mm}{148mm}{*}
+%\settrims{7.4mm}{7.45mm}
+\quarkmarks
+%=====================
+\input{styles}
+% defining the title and the author
+
+\title{Muster}
+\author{Eero Tuovinen}
+\newcommand{\press}{Prepararsi alla guerra}
+\newcommand{\translator}{Lorenzo "The Kernel in Yellow" Rossi}
+
+% BEGIN THE DOCUMENT
+\begin{document}
+\pagestyle{empty}
+%\includepdf{Illustrations/couv_front.png}
+%\includepdf{Illustrations/carte_zad.jpg}
+% the half title page
+%\halftitlepage
+%\cleardoublepage
+% the title page
+\titleM
+\vspace{2\baselineskip}
+%\par
+\vspace{\baselineskip}
+\vspace{2\baselineskip}
+\doclicenseThis
+\vspace*{\baselineskip}
+%\centerline{\url{http://livretzad.lamad.net}}
+\clearpage
+
+% begin front matter
+\frontmatter
+\pagestyle{mystyle}
+% preface
+\input{chapters/0_prefazione}
+\input{chapters/1_manifesto}
+%\newpage\phantom{blabla}
+\clearpage
+\tableofcontents*
+
+
+% begin main matter
+\mainmatter
+\sloppybottom
+\input{chapters/2_introduzione}
+\input{chapters/3_basi}
+\input{chapters/4_argomenti_avanzati.tex}
+
+
+% begin back matter
+\backmatter
+%\input{Chapitres/9_6_points}
+%\input{Chapitres/99_plusloin}
+\appendix
+\input{Chapters/appendix_ita.tex}
+
+%\newpage\phantom{blabla}
+%\pagestyle{empty}
+\newpage\phantom{blabla}
+%\pagestyle{empty}
+%\includepdf{Illustrations/couv_back.png}
+\end{document}
+
+
+% END THE DOCUMENT

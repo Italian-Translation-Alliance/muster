@@ -1,0 +1,43 @@
+\begin{figure}[p!]
+    \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}
+            \justifying
+            \node[text width=\linewidth] (T) at (-1, 0.25) {
+                \textsc{\LARGE{Struttura basilare di una sessione}}\\
+                \textit{Le campagne di \dnd{} procedono come una serie regolare di sedute chiamate \textbf{sessioni}. La durata tipica di una sessione è di circa 4 ore, sebbene sessioni dalla durata doppia che occupano un'intera giornata non siano così rare. Una campagna a ritmo pieno gioca tutte le settimane, ma la sessione basilare è adatta anche a one-shot e sessioni improvvisate.}
+            };
+            \node[phase] (F1) at (-4,-2.2) {Il GM introduce lo scenario};
+            \node[phase] (F2) at (2,-2.2) {I giocatori preparano il gruppo};
+            \node[comment] (C2) at (-4,-4) {Discuti l'ambientazione e imposta gli obiettivi dello scenario. Illustra le regole e rispondi alle domande mentre i giocatori si preparano};
+            \node[comment] (C3) at (2,-4) {Crea i personaggi, assolda mercenari, equipaggia il gruppo, revisiona le informazioni, fai piani\dots};
+            \node[phase] (F3) at (-3.5,-7) {Esplorazione del dungeon};
+            \node (E3) at (-1.5, -6.5) {};
+            \node (E4) at (-0.1, -7) {};
+            \node (E5) at (-1.5, -7.5) {};
+
+            \node[comment, text width=3cm] (C4) at (-4,-8.8) {La parte principale della partita: il gruppo naviga il dungeon, mappando ed esplorando.};
+            \node[comment, text width=4cm] (C5) at (1.3,-8.8) {Mentre il gruppo scopre mostri, trappole, tesori e stranezze nel dungeon, il gioco si concentra su questi eventi.};
+
+            \draw[->, ultra thick]
+                  (E3) to[arc through={clockwise,(E4)}] (E5);
+            \node[phase] (F4) at (1,-7) {Incontri \& scoperte};
+
+            \node[phase] (F5) at (-4.4,-11) {Ritirata \& calcolo punti};
+            \node[comment, text width=4.5cm] (C6) at (-4.4,-13.5) {Gli avventurieri si ritirano dal dungeon per via dei rischi, perché hanno ottenuto i loro obiettivi o perché la sessione termina. L'arbitro dà un punteggio ai risultati del gruppo.};
+            \node[phase] (F6) at (2.2,-11) {Muoiono tutti};
+            \node[comment] (C7) at (2.2,-12.8) {Il mondo sotterraneo dei dungeon è pericoloso, errori e sfortuna possono far terminare lo scenario con morti ignominose.};
+            
+            \draw [->,line width=2pt] (-2,-2) -- (0,-2);
+            \draw [<-,line width=2pt] (-2,-2.3) -- (0,-2.3);
+            \draw [->,line width=2pt] (-1, -2.4) 
+                    -- (-1, -5.5) 
+                    -- (-3.5, -5.5)
+                    -- (F3.north);
+
+            \draw[->,line width=2pt] (-2.15, -7.5)
+                 |- (F5.east);
+            \draw[->, line width=2pt] (-1.8, -7.5) |- (F6.west);
+            
+        \end{tikzpicture}
+    }
+\end{figure}

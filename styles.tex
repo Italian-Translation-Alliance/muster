@@ -1,0 +1,261 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage[osf]{Alegreya,AlegreyaSans}
+\usepackage{graphicx}
+\usepackage[labelformat=empty,textfont={it}]{caption}
+\usepackage{pdfpages}
+\usepackage[
+    type={CC},
+    modifier={by},
+    version={4.0},
+]{doclicense}
+\usepackage{ragged2e}
+
+% PACKAGE DEFINITION
+% typographical packages
+\usepackage{microtype} % for micro-typographical adjustments
+\usepackage{setspace} % for line spacing
+\usepackage{lettrine} % for drop caps and awesome chapter beginnings
+\usepackage{titlesec} % for manipulation of chapter titles
+\usepackage{enumitem}
+% for placeholder text
+\usepackage{lipsum} % to generate Lorem Ipsum
+
+% other
+\usepackage{calc}
+\usepackage{hologo}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[symbol]{footmisc}
+
+\urlstyle{tt}
+%\usepackage{showframe}
+
+%footnote numbering
+\usepackage{chngcntr}
+\counterwithout*{footnote}{chapter}
+
+% Graphs
+\usepackage{tikz}
+\usetikzlibrary{ext.topaths.arcthrough, shapes.misc, shapes.geometric, fit}
+
+\tikzset{
+    phase/.style={
+        draw,
+        rectangle,
+        align=center,
+        draw=black,
+        very thick,
+        fill=white,
+        font=\scshape,
+        text width=3.5cm,
+        minimum height=2.5em
+    }
+}
+
+\tikzset{
+    main/.style={
+        draw,
+        diamond,
+        aspect=1,
+        align=center,
+        draw=black,
+        ultra thick,
+        fill=white,
+        font=\scshape,
+        text width=8em,
+        minimum height=8em
+    }
+}
+
+\tikzset{
+    action/.style={
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm,
+        align=center,
+        draw=black,
+        very thick,
+        fill=white,
+        font=\scshape,
+        text width=2cm,
+        minimum height=2.5em
+    }
+}
+
+\tikzset{
+    doctrine/.style={
+        draw,
+        chamfered rectangle,
+        align=center,
+        draw=black,
+        very thick,
+        fill=white,
+        font=\scshape,
+        text width=2cm,
+        minimum height=2.5em
+    }
+}
+
+\tikzset{
+    comment/.style={
+        rectangle,
+        align=center,
+        fill=white,
+        text width=4.7cm,
+        font=\itshape
+    }
+}
+
+\tikzset{
+    bigcomment/.style={
+        rectangle,
+        align=left,
+        fill=white,
+        text width=7.5cm,
+        font=\itshape
+    }
+}
+
+\tikzset{
+    pagetitle/.style={
+        rectangle,
+        align=left,
+        fill=white,
+        text width=2.5cm,
+        font=\scshape\Large
+    }
+}
+
+% PHYSICAL DOCUMENT SETUP
+% media settings
+\setstocksize{210mm}{148mm}
+\settrimmedsize{210mm}{148mm}{*}
+\setbinding{8mm}
+\setlrmarginsandblock{15mm}{2.1cm}{*}
+\setulmarginsandblock{15mm}{2.1cm}{*}
+\semiisopage[12]
+% custom second title page
+\makeatletter
+\newcommand*\halftitlepage{\begingroup % Misericords, T&H p 153
+  \setlength\drop{0.1\textheight}
+  \begin{center}
+  \vspace*{\drop}
+  \rule{\textwidth}{0in}\par
+  {\Large\textsc\thetitle\par}
+  \rule{\textwidth}{0in}\par
+  \vfill
+  \end{center}
+\endgroup}
+\makeatother
+
+% custom title page
+\thispagestyle{empty}
+\makeatletter
+\newlength\drop
+\newcommand*\titleM{\begingroup % Misericords, T&H p 153
+  \setlength\drop{0.15\textheight}
+  \begin{center}
+  \vspace*{\drop}
+  \rule{\textwidth}{0in}\par
+  {\HUGE\textsc\thetitle\par}
+  \rule{\textwidth}{0in}\par
+  {\Large\scshape\press}
+  \vfill
+  {\Large\textit{di \theauthor}\par}
+  \vfill
+  {\Large\textit{traduzione di\\ \translator}\par}
+  \end{center}
+\endgroup}
+\makeatother
+
+% chapter title manipulation
+% padding with zero
+%\renewcommand*\thechapter{\ifnum\value{chapter}<10 0\fi\arabic{chapter}}
+% chapter title display
+\titleformat
+{\chapter}
+[display]
+{\normalfont\scshape\huge}
+{\HUGE\textsc\thechapter\centering}
+{0pt}
+{\vspace{5pt}\centering}[\vspace{25pt}]
+
+%section title manipulation
+\titleformat
+    {\section}
+    [display]
+    {\normalfont\scshape\LARGE}
+    {\textsc\thesection\centering}
+    {0pt}
+    {\centering}[]
+
+%subsection title manipulation
+\titleformat
+    {\subsection}
+    [display]
+    {\normalfont\scshape\large}
+    {\large\textsc\thesubsection}
+    {0pt}
+    {}[]
+%paragraph title manipulation
+\titleformat{\paragraph}[runin]{\normalfont\bfseries}{\textbf\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{\the\fontdimen2\font}
+
+% typographical settings for the body text
+\setlength{\parskip}{0em}
+\linespread{1.09}
+
+% HEADER AND FOOTER MANIPULATION
+  % for normal pages
+  \nouppercaseheads
+  \headsep = 0.22in
+  \makepagestyle{mystyle} 
+  \setlength{\headwidth}{\dimexpr\textwidth+\marginparsep+\marginparwidth\relax}
+  \makerunningwidth{mystyle}{\headwidth}
+  %\makeevenhead{mystyle}{}{\textsf{\scriptsize\scshape\thetitle}}{}
+  %\makeoddhead{mystyle}{}{\textsf{\scriptsize\scshape\leftmark}}{}
+  \makeevenfoot{mystyle}{}{\textsf{\scriptsize\thepage}}{}
+  \makeoddfoot{mystyle}{}{\textsf{\scriptsize\thepage}}{}
+  \makeatletter
+  \makepsmarks{mystyle}{%
+  \createmark{chapter}{left}{nonumber}{}{}}
+  \makeatother
+  % for pages where chapters begin
+  \makepagestyle{plain}
+  \makerunningwidth{plain}{\headwidth}
+  \makeevenfoot{plain}{}{}{}
+  \makeoddfoot{plain}{}{}{}
+  \pagestyle{mystyle}
+% END HEADER AND FOOTER MANIPULATION
+
+% Custom sections to avoid numbering shit
+\newcommand{\usection}[1]{\section*{#1}
+\addcontentsline{toc}{section}{\protect\quad#1}}
+
+\newcommand{\usubsection}[1]{\subsection*{#1}
+\addcontentsline{toc}{subsection}{\protect\numberline{}#1}}
+
+\newcommand{\usubsubsection}[1]{\subsubsection*{#1}
+\addcontentsline{toc}{subsubsection}{\protect\numberline{}#1}}
+
+% Translator's notes
+\newcommand{\translatornote}[1]{\footnote[2]{#1 (\textit{NdT})}}
+
+% table of contents customisation
+\renewcommand\contentsname{\normalfont\scshape Contents}
+\renewcommand\cftchapterfont{\normalfont}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\printtoctitle}{\centering\Huge}
+
+% frequently used stuff
+\newcommand{\dnd}{D\&D}
+\newcommand{\wargam}[1]{\textit{wargam#1}}
+
+% layout check and fix
+\checkandfixthelayout
+\fixpdflayout
+
+%\setsecnumdepth{none}
+%\maxsecnumdepth{none}

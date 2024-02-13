@@ -1,0 +1,34 @@
+\begin{figure}[p!]
+    \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}
+            \node[text width=\linewidth, align=center] (T) at (-1, 0.25) {
+                    \textsc{\LARGE{Dottrina e abilità}}\\
+                    \textit{Questa è la parte effettivamente divertente del} wargaming\textit{, dove cerchi di imparare dall'esperienza e di formulare principi per contesti futuri.}
+                };
+                %Main flow
+                \node[phase] (F1) at (-1,-1.5) {Il GM introduce lo scenario};
+                \node[phase] (F2) at (-1,-4.6) {I giocatori risolvono lo scenario};
+                \node[phase] (F3) at (-1,-8.6) {Formazione della dottrina};
+                \node[action, text width=3cm] (A1) at (-1,-6.6) {Apprendimento};
+
+                % D1
+                \node (D1_1) at (-2, -3.6) {};
+                \node (D1_2) at (-3.5, -3) {};
+                \node (D1_3) at (-3, -4) {};
+                \draw[->, ultra thick]
+                    (D1_1) to[arc through={counterclockwise,(D1_2)}] (D1_3);
+                \node[doctrine] (D1) at (-4.2,-3) {Abilità esterne};
+
+                % D2
+                \node[doctrine] (D2) at (-4.3,-6.6) {Applicazione della dottrina};
+
+                \draw [->,line width=2pt] (F1) -- (F2);
+                \draw [->,line width=2pt] (F2) -- (A1) -- (F3);
+                \draw [-, line width=2pt] (F3.west) -- (-4.3, -8.6) -- (D2.south);
+                \draw [->, line width=2pt] (D2.north) -- (-4.3, -4.6) -- (F2.west);
+
+                \node[rectangle, align=left, text width=0.8\linewidth,font=\itshape] at (-2.4, -11) {Ci sono indubbiamente gloria e orgoglio nell'avere successo nel gioco, ma non bisognerebbe sottostimare la soddisfazione intellettuale del preparare una "guida" ben ponderata per le operazioni commando nei dungeon.};
+
+        \end{tikzpicture}
+    }
+\end{figure}

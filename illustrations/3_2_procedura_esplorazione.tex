@@ -1,0 +1,70 @@
+\begin{figure}[p!]
+    \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}
+            \justifying
+            \node[text width=\linewidth] (T) at (-1, 0.25) {
+                \textsc{\LARGE{Procedura di esplorazione del dungeon}}\\
+                \textit{Questo è il cuore originario di \dnd{}, la tecnologia di} wargaming \textit{ usata per risolvere le escursioni nei dungeon. Rimane giocabile ed eccitante anche senza l'indoratura di classi personaggio uniche, o punti esperienza, o regole di combattimento tattico o persino trattative in dialogo libero. Una danza di geometria mappale, tempo e azzardo.}
+            };
+            
+            % Movimento
+            \node (A1_1) at (-2, -2.1) {};
+            \node (A1_2) at (-3, -2.5) {};
+            \node (A1_3) at (-2, -2.8) {};
+            \draw[->, ultra thick]
+                 (A1_1) to[arc through={counterclockwise,(A1_2)}] (A1_3);
+            \node[action] (movimento) at (-4,-2.5) {Movimento};
+            \node[comment, text width=3.5cm] (c_movimento) at (-4.5, -4.5) {Scegliete direzione e velocità; la velocità di esplorazione è più sicura e permette di tenere una mappa, ma copre meno terreno};
+
+            %Riposo
+            \node (A2_1) at (-1, -6.2) {};
+            \node (A2_2) at (-2.2, -6.3) {};
+            \node (A2_3) at (-1.1, -6.6) {};
+            \draw[->, ultra thick]
+                 (A2_1) to[arc through={counterclockwise,(A2_2)}] (A2_3);
+            \node[action] (riposo) at (-2.7,-6.5) {Riposo};
+            \node[comment, text width=4cm] (c_riposo) at (-4, -7.9) {Ogni 5 Turni e dopo gli scontri. Tenete traccia di torce e acqua.};
+
+            %Ricerca
+            \node (A3_1) at (1.5, -4.2) {};
+            \node (A3_2) at (2.5, -4.5) {};
+            \node (A3_3) at (1, -4.8) {};
+            \node[comment, text width=3cm, align=right] (c_ricerca) at (3.5, -6.8) {Perquisici attentamente una stanza o un corridoio per segni, indizi, trappole o tesori nascosti.};
+            \draw[->, ultra thick]
+            (A3_3) to[arc through={counterclockwise,(A3_2)}] (A3_1);
+            \node[action] (ricerca) at (2.8,-5) {Ricerca};
+
+            %Incontri casuali
+            \node [phase] (incontri) at (-4, -9.5) {Incontri casuali};
+            \node[comment, align=left, text width=4cm] (c_incontri) at (-4, -11.5) {L'arbitro controlla ogni turno o quasi se gli abitanti del dungeon hanno scoperto il gruppo. Questa è raramente una buona notizia.};
+
+            %Scoperta
+            \node[main] (scoperta) at (2.4,-10) {\Large{Scoperta}};
+
+            % Turno di esplorazione
+            \node [comment, align=left] (c_main) at (3.1,-2.3) {Circa 10 minuti in gioco. Il gruppo decide la sua prossima mossa e il leader informa il GM.};
+            \node[main] (main) at (-0.7,-4) {\Large{Turno di esplorazione}};
+
+            %Sorpresa
+            \node (A4_1) at (0.8, -10.5) {};
+            \node (A4_2) at (-0.5, -11) {};
+            \node (A4_3) at (0.8, -11.5) {};
+            \node[comment, text width=3.5cm, align=right] (c_sorpresa) at (-0.5, -13) {Gli avventurieri possono incontrare una gran varietà di cose ed esseri nel dungeon.};
+            \node[comment, align=center] (c_sorpresa_1) at (-0.5, -14.9) {Il controllo tattico dei termini di ingaggio è tanto importante quanto la scelta dell'effettivo corso d'azione\dots};
+             \draw[->, ultra thick]
+                (A4_1) to[arc through={counterclockwise,(A4_2)}] (A4_3);
+            \node[action] (sorpresa) at (-0.5,-11) {Sorpresa};
+
+            \draw [->, line width=2pt] (3.5,-11) -| (5,-16);
+
+            \node[action,text width=3cm] (parlamentare) at (5,-12) {Parlamentare};
+            \node[action,text width=3cm] (lottare) at (5,-13.5) {Lottare};
+            \node[action,text width=3cm] (fuggire) at (5,-15) {Fuggire};
+
+
+            \draw [->,line width=2pt] (-0.8, -6.3) |- (-2, -9.2);
+            \draw [->,line width=2pt] (-0.6, -6.3) |- (0.6, -9.2);
+            \draw [->,line width=2pt] (-2, -9.6) |- (0.6, -9.6);
+        \end{tikzpicture}
+    }
+\end{figure}
