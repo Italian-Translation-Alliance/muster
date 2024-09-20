@@ -1,0 +1,62 @@
+\begin{figure}[p!]
+    \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}
+            \node[text width=\linewidth, align=center] (T) at (-1, 0.25) {
+                    \textsc{\LARGE{Modello standard di attività}}\\
+                    \textit{\dnd{} è, strutturalmente, wargaming tradizionale, oscurato dal modo in cui il Game Master compie una doppia funzione e tutti gli altri giocatori stanno dalla stessa parte. Questa organizzazione è superficiale e facile da spezzare per scenari più vicini al wargaming tradizionale.}
+                };
+
+            \node[draw, ultra thick, rectangle,text width=\linewidth,align=center] (A) at (-1, -4) {
+                \Large\textsc{Game Master}\\
+                \begin{tikzpicture}
+                    \node[comment, text width=0.35\linewidth, font=\itshape\small] (B) at (-3, -2) {L'arbitro esegue i processi di risoluzione e consiglia i giocatori sulle regole.};
+                    \node[phase] (arbitro) at (-3,-3.5) {Arbitro};
+                    \node[action] (risolve) at (-0.7, -5.5) {Risolve};
+                    \node (A1) at (-1, -6.35) {};
+                    \node[comment, text width=0.35\linewidth, font=\itshape\small] (C) at (2.5, -2) {Il gestore delle forze d'opposizione prepara e manovra lo scenario, es. gioca i PNG};
+                    \node[phase] (opposizione) at (2.5, -3.5) {Opposizone};
+                    \node (opforce) at (2, -4.35) {};
+                    \node (opforce_1) at (4, -3.5) {};
+                    \draw[-, ultra thick] (arbitro) -| (risolve);
+                \end{tikzpicture}
+            };
+
+            \node (opforce_2) at (8, -3.5) {};
+            \node[action, font=\normalsize\scshape] (definisce) at (2, -8) {Definisce};
+            \node[phase] (scenario) at (-1, -9.5) {Scenario in gioco};
+            \node[phase] (descrizione) at (-1, -11) {Informazione};
+            \node[comment] (c_descrizione) at (3.5, -11) {Il gruppo viene informato dello scenario e può fare domande};
+
+
+            \node[draw, ultra thick, rectangle,text width=\linewidth,align=center] (D) at (-1, -15.5) {
+                \Large\textsc{Gruppo di avventurieri}\\
+                \begin{tikzpicture}
+                    \node[draw, thick, rectangle, text width=0.3\linewidth, font=\scshape\small] (ruoli) at (-4, -0.5){Portavoce\\Mappatore\\Quartiermastro\\etc\dots};
+                    \node[comment, text width=0.4\linewidth, font=\itshape\small] (c_ruoli) at (0,0) {Il gruppo distribuisce internamente ruoli e compiti.};
+                    \node[action, font=\scshape\small] (pianificazione) at (3, -1.2) {Pianificazione};
+                    \node[comment, text width=0.3\linewidth, font=\itshape\small] (c_pianificazione) at (2.5,-2.5) {Il gruppo pianifica le prossime manovre};
+
+                    \node (A1_1) at (1.8, -1) {};
+                    \node (A1_2) at (0.8, -1.3) {};
+                    \node (A1_3) at (1.8, -1.2) {};
+                    \draw[->, ultra thick]
+                         (A1_1) to[arc through={counterclockwise,(A1_2)}] (A1_3);
+                \end{tikzpicture}
+            };
+
+            \node[action] (domande_1) at (3.5, -10) {Interroga};
+            \node[action] (domande_2) at (-3, -8) {Interroga};
+            \node[action] (annuncia) at (-6, -8) {Annuncia};
+            \node[comment] (c_gruppo) at (-5.5, -11) {Il portavoce annuncia le manovre del party e fa domande sulle regole};
+            \node (B1) at (-4.5, -10) {}; 
+
+            \draw[->, ultra thick] (opforce) -- (definisce) |- (scenario);
+            \draw[->, ultra thick] (A1) to (scenario);
+            \draw[->, ultra thick] (scenario) -- (descrizione);
+            \draw[->, ultra thick] (D) -| (domande_1) -| (opforce_2) -| (opforce_1);
+            \draw[->, ultra thick] (B1) -- (annuncia) -- (arbitro);
+            \draw[->, ultra thick] (D) -- (B1) -- (domande_2) -- (arbitro);
+
+        \end{tikzpicture}
+    }
+\end{figure}
